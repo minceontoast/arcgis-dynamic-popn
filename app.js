@@ -106,7 +106,7 @@ require([
     container: "viewDiv",
     map: map,
     center: [174.7785, -41.2890],
-    zoom: 14
+    zoom: 11
   });
 
   // ========== Widgets ==========

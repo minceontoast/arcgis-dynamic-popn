@@ -400,6 +400,20 @@ html, body, #viewDiv {
     font-size: 26px;
   }
 
+  #searchContainer {
+    margin-bottom: 8px;
+  }
+  #searchContainer .esri-search {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #searchContainer .esri-search__container {
+    width: 100% !important;
+  }
+  #searchContainer .esri-search__input {
+    width: 100% !important;
+  }
+
   #splash-card {
     margin: 16px;
     padding: 24px 20px;
@@ -498,6 +512,20 @@ html, body, #viewDiv {
 
   .saved-query-detail {
     font-size: 10px;
+  }
+
+  #searchContainer {
+    margin-bottom: 6px;
+  }
+  #searchContainer .esri-search {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #searchContainer .esri-search__container {
+    width: 100% !important;
+  }
+  #searchContainer .esri-search__input {
+    width: 100% !important;
   }
 
   #instructions {
