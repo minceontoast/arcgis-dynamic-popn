@@ -1,34 +1,154 @@
-html,
-body,
-#viewDiv {
+/* === Base === */
+html, body, #viewDiv {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-}
-
-#infoPanel {
-  position: absolute;
-  top: 15px;
-  right: 60px;
-  width: 260px;
-  padding: 16px 20px;
-  background: rgba(30, 30, 30, 0.88);
-  border-radius: 10px;
-  color: #e0e0e0;
   font-family: "Avenir Next", "Helvetica Neue", sans-serif;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  z-index: 10;
-  backdrop-filter: blur(8px);
 }
 
-#infoPanel h2 {
-  margin: 0 0 12px;
-  font-size: 16px;
+/* === Splash Screen === */
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  transition: opacity 0.4s ease;
+}
+#splash.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#splash-card {
+  background: rgba(30, 30, 30, 0.95);
+  border-radius: 14px;
+  padding: 36px 40px;
+  max-width: 400px;
+  color: #e0e0e0;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+#splash-card h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  color: #fff;
+}
+#splash-card p {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: #aaa;
+}
+#splash-card ul {
+  text-align: left;
+  padding-left: 20px;
+  margin: 0 0 24px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #ccc;
+}
+#splash-dismiss {
+  background: #56c1ff;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 32px;
+  font-size: 15px;
   font-weight: 600;
-  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#splash-dismiss:hover {
+  background: #7dd3ff;
 }
 
+/* === Sidebar === */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  z-index: 50;
+  background: rgba(26, 26, 26, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+#sidebar.collapsed {
+  transform: translateX(-300px);
+}
+
+#sidebar-toggle {
+  position: absolute;
+  top: 12px;
+  right: -42px;
+  width: 36px;
+  height: 36px;
+  background: rgba(26, 26, 26, 0.92);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 0 8px 8px 0;
+  color: #ccc;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  transition: color 0.2s;
+}
+#sidebar-toggle:hover {
+  color: #fff;
+}
+
+#sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+#sidebar-content h2 {
+  margin: 0 0 16px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Search widget inside sidebar */
+#searchContainer {
+  margin-bottom: 10px;
+}
+#searchContainer .esri-search {
+  width: 100% !important;
+}
+
+/* Locate button */
+#locateBtn {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#locateBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Population display */
 #popDisplay {
   background: rgba(255, 255, 255, 0.06);
   border-radius: 8px;
@@ -36,7 +156,6 @@ body,
   text-align: center;
   margin-bottom: 16px;
 }
-
 #popLabel {
   font-size: 11px;
   text-transform: uppercase;
@@ -44,7 +163,6 @@ body,
   color: #999;
   margin-bottom: 6px;
 }
-
 #popValue {
   font-size: 32px;
   font-weight: 700;
@@ -52,22 +170,20 @@ body,
   line-height: 1.1;
 }
 
+/* Radius slider */
 #radiusControl {
   margin-bottom: 14px;
 }
-
 #radiusControl label {
   display: block;
   font-size: 13px;
   margin-bottom: 6px;
   color: #ccc;
 }
-
 #radiusLabel {
   font-weight: 700;
   color: #56c1ff;
 }
-
 #radiusSlider {
   -webkit-appearance: none;
   appearance: none;
@@ -78,7 +194,6 @@ body,
   outline: none;
   cursor: pointer;
 }
-
 #radiusSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -89,7 +204,6 @@ body,
   cursor: pointer;
   border: 2px solid #fff;
 }
-
 #radiusSlider::-moz-range-thumb {
   width: 18px;
   height: 18px;
@@ -99,9 +213,95 @@ body,
   border: 2px solid #fff;
 }
 
+/* Toggle view & save buttons */
+#toggleViewBtn,
+#saveQueryBtn {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+#toggleViewBtn {
+  background: rgba(86, 193, 255, 0.15);
+  color: #56c1ff;
+}
+#toggleViewBtn:hover {
+  background: rgba(86, 193, 255, 0.3);
+}
+#saveQueryBtn {
+  background: rgba(100, 220, 140, 0.15);
+  color: #64dc8c;
+}
+#saveQueryBtn:hover:not(:disabled) {
+  background: rgba(100, 220, 140, 0.3);
+}
+#saveQueryBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Saved queries */
+#savedQueries {
+  margin-top: 12px;
+}
+#savedQueries h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin: 0 0 8px;
+}
+.saved-query-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  font-size: 13px;
+}
+.saved-query-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.saved-query-info {
+  flex: 1;
+  min-width: 0;
+}
+.saved-query-label {
+  font-weight: 600;
+  color: #ddd;
+}
+.saved-query-detail {
+  font-size: 11px;
+  color: #999;
+}
+.saved-query-delete {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.saved-query-delete:hover {
+  color: #ff6b6b;
+}
+
+/* Instructions */
 #instructions {
   font-size: 12px;
   color: #888;
   line-height: 1.5;
-  margin: 0;
+  margin: 12px 0 0;
 }
