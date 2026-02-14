@@ -357,3 +357,173 @@ html, body, #viewDiv {
   line-height: 1.5;
   margin: 12px 0 0;
 }
+
+/* ========== Tablet (≤ 768px) ========== */
+@media (max-width: 768px) {
+  #sidebar {
+    top: auto;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: auto;
+    max-height: 45vh;
+    border-radius: 14px;
+    transition: transform 0.3s ease;
+  }
+  #sidebar.collapsed {
+    transform: translateY(calc(100% + 16px));
+  }
+
+  #sidebar-toggle {
+    top: -44px;
+    right: 0;
+    left: auto;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  #sidebar-content {
+    padding: 14px 16px;
+  }
+
+  #sidebar-content h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  #popDisplay {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  #popValue {
+    font-size: 26px;
+  }
+
+  #splash-card {
+    margin: 16px;
+    padding: 24px 20px;
+  }
+
+  #splash-card h1 {
+    font-size: 22px;
+  }
+}
+
+/* ========== Mobile (≤ 480px) ========== */
+@media (max-width: 480px) {
+  #sidebar {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 50vh;
+    border-radius: 14px 14px 0 0;
+    border-bottom: none;
+  }
+  #sidebar.collapsed {
+    transform: translateY(calc(100% + 8px));
+  }
+
+  #sidebar-toggle {
+    top: -40px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  #sidebar-content {
+    padding: 12px 14px;
+  }
+
+  #sidebar-content h2 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  #popDisplay {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  #popValue {
+    font-size: 22px;
+  }
+
+  #popPercent {
+    font-size: 11px;
+  }
+
+  #radiusControl {
+    margin-bottom: 10px;
+  }
+
+  #radiusControl label {
+    font-size: 12px;
+  }
+
+  #drawControls {
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  #drawPolygonBtn,
+  #clearDrawBtn {
+    padding: 7px;
+    font-size: 12px;
+  }
+
+  #saveQueryBtn {
+    padding: 7px;
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  #locateBtn {
+    padding: 7px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .saved-query-item {
+    padding: 6px 8px;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .saved-query-label-input {
+    font-size: 12px;
+  }
+
+  .saved-query-detail {
+    font-size: 10px;
+  }
+
+  #instructions {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  #splash-card {
+    margin: 12px;
+    padding: 20px 16px;
+  }
+
+  #splash-card h1 {
+    font-size: 20px;
+  }
+
+  #splash-card p {
+    font-size: 13px;
+  }
+
+  #splash-card ul {
+    font-size: 12px;
+  }
+
+  #splash-dismiss {
+    padding: 9px 24px;
+    font-size: 14px;
+  }
+}
